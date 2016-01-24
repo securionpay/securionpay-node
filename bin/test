@@ -1,0 +1,3 @@
+#!/bin/sh
+
+JASMINE_CONFIG_PATH=test/unit/jasmine.json node_modules/.bin/jasmine

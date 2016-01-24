@@ -1,0 +1,4 @@
+#!/bin/sh
+
+JASMINE_CONFIG_PATH=test/unit/jasmine.json node_modules/.bin/istanbul cover node_modules/.bin/jasmine
+node_modules/.bin/istanbul check-coverage --statements 80
