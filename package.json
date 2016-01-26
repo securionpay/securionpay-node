@@ -4,8 +4,9 @@
   "description": "Node.js wrapper for SecurionPay API",
   "main": "index.js",
   "scripts": {
-    "test": "bin/test",
-    "check-coverage": "bin/check-coverage"
+    "test": "bin/unit-test",
+    "check-coverage": "bin/check-coverage",
+    "integration-test": "bin/integration-test"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,6 @@
     "bluebird": "^3.1.2",
     "istanbul": "^0.4.2",
     "jasmine": "^2.4.1",
-    "jshint": "^2.9.1",
     "mockery": "^1.4.0"
   }
 }
