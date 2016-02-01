@@ -2,7 +2,7 @@
   "name": "securionpay",
   "version": "0.1.0",
   "description": "Node.js wrapper for SecurionPay API",
-  "main": "index.js",
+  "main": "lib/securionpay.js",
   "scripts": {
     "test": "bin/unit-test",
     "check-coverage": "bin/check-coverage",
@@ -17,7 +17,7 @@
     "api"
   ],
   "author": "Adrian Slipko <agarbund@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/securionpay/securionpay-node/issues"
   },

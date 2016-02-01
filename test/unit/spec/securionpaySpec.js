@@ -17,7 +17,7 @@ describe('Library core', function() {
         });
         mockery.registerMock('request-promise', request);
 
-        lib = require('../../../lib/core');
+        lib = require('../../../lib/securionpay');
     });
 
     afterEach(function() {
@@ -32,34 +32,34 @@ describe('Library core', function() {
     });
 
     it('should initialize properly without url provided', function() {
-        var api = new lib('api_key');
+        var api = new lib('private_key');
 
         expect(api.options).toEqual({
-            apiKey: 'api_key',
+            privateKey: 'private_key',
             url: 'https://api.securionpay.com'
         });
     });
 
     it('should initialize properly with url provided', function() {
-        var api = new lib('api_key', { url: 'custom_url' });
+        var api = new lib('private_key', { url: 'custom_url' });
 
         expect(api.options).toEqual({
-            apiKey: 'api_key',
+            privateKey: 'private_key',
             url: 'custom_url'
         });
     });
 
     it('should remove trailing slash from custom url', function() {
-        var api = new lib('api_key', { url: 'custom_url/' });
+        var api = new lib('private_key', { url: 'custom_url/' });
 
         expect(api.options).toEqual({
-            apiKey: 'api_key',
+            privateKey: 'private_key',
             url: 'custom_url'
         });
     });
 
     it('should call request with correct parameters', function() {
-        var api = new lib('api_key', { url: 'custom_url' });
+        var api = new lib('private_key', { url: 'custom_url' });
 
         api._call({
             path: '/path',
@@ -74,7 +74,7 @@ describe('Library core', function() {
             method: 'POST',
             json: true,
             auth: {
-                username: 'api_key',
+                username: 'private_key',
                 password: ''
             },
             body: {
@@ -84,7 +84,7 @@ describe('Library core', function() {
     });
 
     it('should call GET request with correct parameters', function() {
-        var api = new lib('api_key', { url: 'custom_url' });
+        var api = new lib('private_key', { url: 'custom_url' });
 
         api._call({
             path: '/path',
@@ -99,7 +99,7 @@ describe('Library core', function() {
             method: 'GET',
             json: true,
             auth: {
-                username: 'api_key',
+                username: 'private_key',
                 password: ''
             },
             qs: {
@@ -109,7 +109,7 @@ describe('Library core', function() {
     });
 
     it('should return promise which is resolved with request response', function(done) {
-        var api = new lib('api_key');
+        var api = new lib('private_key');
 
         api._call({}).then(function(response) {
             expect(response).toBe('response');
@@ -120,7 +120,7 @@ describe('Library core', function() {
     });
 
     it('should fire provided callback with request response', function(done) {
-        var api = new lib('api_key');
+        var api = new lib('private_key');
 
         api._call({}, function(error, response) {
             expect(error).not.toBeDefined();
@@ -132,7 +132,7 @@ describe('Library core', function() {
     });
 
     it('should return promise which is rejected with library error', function(done) {
-        var api = new lib('api_key');
+        var api = new lib('private_key');
 
         api._call({}).catch(function(error) {
             expect(error).toBe('error');
@@ -143,7 +143,7 @@ describe('Library core', function() {
     });
 
     it('should fire provided callback with library error', function(done) {
-        var api = new lib('api_key');
+        var api = new lib('private_key');
 
         api._call({}, function(error) {
             expect(error).toBe('error');
@@ -154,7 +154,7 @@ describe('Library core', function() {
     });
 
     it('should return promise which is rejected with api error', function(done) {
-        var api = new lib('api_key');
+        var api = new lib('private_key');
 
         api._call({}).catch(function(error) {
             expect(error.message).toBe('Response code: 400 (error_type): Error message');
@@ -173,7 +173,7 @@ describe('Library core', function() {
     });
 
     it('should fire provided callback with library error', function(done) {
-        var api = new lib('api_key');
+        var api = new lib('private_key');
 
         api._call({}, function(error) {
             expect(error.message).toBe('Response code: 400 (error_type): Error message');
