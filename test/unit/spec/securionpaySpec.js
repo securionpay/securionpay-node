@@ -157,7 +157,8 @@ describe('Library core', function() {
         var api = new lib('private_key');
 
         api._call({}).catch(function(error) {
-            expect(error.message).toBe('Response code: 400 (error_type): Error message');
+            expect(error.message).toBe('Error message');
+            expect(error.type).toBe('error_type');
             done();
         });
 
@@ -176,7 +177,8 @@ describe('Library core', function() {
         var api = new lib('private_key');
 
         api._call({}, function(error) {
-            expect(error.message).toBe('Response code: 400 (error_type): Error message');
+            expect(error.message).toBe('Error message');
+            expect(error.type).toBe('error_type');
             done();
         });
 
