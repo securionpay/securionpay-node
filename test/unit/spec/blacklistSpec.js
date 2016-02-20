@@ -1,4 +1,4 @@
-describe('Cards api', function() {
+describe('Blacklist rules api', function() {
     var call, api;
 
     beforeEach(function() {

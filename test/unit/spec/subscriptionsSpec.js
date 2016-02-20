@@ -1,4 +1,4 @@
-describe('Cards api', function() {
+describe('Subscriptions api', function() {
     var call, api;
 
     beforeEach(function() {
