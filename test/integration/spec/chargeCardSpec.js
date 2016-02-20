@@ -1,4 +1,4 @@
-describe('Cards api', function() {
+describe('Charging card', function() {
     var api, random;
 
     beforeEach(function() {
@@ -10,7 +10,7 @@ describe('Cards api', function() {
         random = Math.round(Math.random() * 1000000);
     });
 
-    it('should create customer and card and then retrieve card', function(done) {
+    it('should create customer, card, and then charge it', function(done) {
         api.customers.create({
             email: 'testuser+' + random + '@example.com',
             description: 'Test user'
@@ -27,8 +27,16 @@ describe('Cards api', function() {
         }).then(function(card) {
             expect(card.last4).toBe('4242');
             expect(card.expMonth).toBe('12');
-            expect(card.expYear).toBe('2020');
+            expect(card.expYear).toBe('2055');
             expect(card.cardholderName).toBe('Test ' + random);
+
+            return api.charges.create({
+                amount: 1000,
+                currency: 'EUR',
+                customerId: card.customerId
+            });
+        }).then(function(charge) {
+            expect(charge.amount).toBe(1000);
 
             done();
         }).done();
