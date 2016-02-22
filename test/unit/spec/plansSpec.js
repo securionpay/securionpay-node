@@ -1,9 +1,9 @@
-describe('Customers api', function() {
+describe('Plans api', function() {
     var call, api;
 
     beforeEach(function() {
         call = jasmine.createSpy().and.returnValue('call response');
-        api = require('../../../lib/resources/customers')(call);
+        api = require('../../../lib/resources/plans')(call);
     });
 
     it('should call create method properly', function() {
@@ -13,7 +13,7 @@ describe('Customers api', function() {
         }, function() {})).toBe('call response');
 
         expect(call.calls.argsFor(0)[0]).toEqual({
-            path: '/customers',
+            path: '/plans',
             method: 'POST',
             params: {
                 key1: 'val1',
@@ -24,22 +24,22 @@ describe('Customers api', function() {
     });
 
     it('should call get method properly', function() {
-        expect(api.get('cusId', function() {})).toBe('call response');
+        expect(api.get('planId', function() {})).toBe('call response');
 
         expect(call.calls.argsFor(0)[0]).toEqual({
-            path: '/customers/cusId',
+            path: '/plans/planId',
             method: 'GET'
         });
         expect(typeof call.calls.argsFor(0)[1]).toBe('function');
     });
 
     it('should call update method properly', function() {
-        expect(api.update('cusId', {
+        expect(api.update('planId', {
             key1: 'val1'
         }, function() {})).toBe('call response');
 
         expect(call.calls.argsFor(0)[0]).toEqual({
-            path: '/customers/cusId',
+            path: '/plans/planId',
             method: 'POST',
             params: {
                 key1: 'val1'
@@ -49,10 +49,10 @@ describe('Customers api', function() {
     });
 
     it('should call delete method properly', function() {
-        expect(api.delete('cusId', function() {})).toBe('call response');
+        expect(api.delete('planId', function() {})).toBe('call response');
 
         expect(call.calls.argsFor(0)[0]).toEqual({
-            path: '/customers/cusId',
+            path: '/plans/planId',
             method: 'DELETE'
         });
         expect(typeof call.calls.argsFor(0)[1]).toBe('function');
@@ -62,7 +62,7 @@ describe('Customers api', function() {
         expect(api.list(function() {})).toBe('call response');
 
         expect(call.calls.argsFor(0)[0]).toEqual({
-            path: '/customers',
+            path: '/plans',
             method: 'GET',
             params: {}
         });
@@ -75,7 +75,7 @@ describe('Customers api', function() {
         }, function() {})).toBe('call response');
 
         expect(call.calls.argsFor(0)[0]).toEqual({
-            path: '/customers',
+            path: '/plans',
             method: 'GET',
             params: {
                 key1: 'val1'

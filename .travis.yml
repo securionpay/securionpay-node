@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - "0.10"
+  - "0.12"
+  - "4.0"
+script:
+  - npm test
+  - PRIVATE_KEY=pr_test_FjW0q2HMs40Jj3KGua5294sp npm run integration-test

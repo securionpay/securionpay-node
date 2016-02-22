@@ -1,9 +1,9 @@
-describe('Customers api', function() {
+describe('Blacklist rules api', function() {
     var call, api;
 
     beforeEach(function() {
         call = jasmine.createSpy().and.returnValue('call response');
-        api = require('../../../lib/resources/customers')(call);
+        api = require('../../../lib/resources/blacklist')(call);
     });
 
     it('should call create method properly', function() {
@@ -13,7 +13,7 @@ describe('Customers api', function() {
         }, function() {})).toBe('call response');
 
         expect(call.calls.argsFor(0)[0]).toEqual({
-            path: '/customers',
+            path: '/blacklist',
             method: 'POST',
             params: {
                 key1: 'val1',
@@ -24,35 +24,20 @@ describe('Customers api', function() {
     });
 
     it('should call get method properly', function() {
-        expect(api.get('cusId', function() {})).toBe('call response');
+        expect(api.get('blackId', function() {})).toBe('call response');
 
         expect(call.calls.argsFor(0)[0]).toEqual({
-            path: '/customers/cusId',
+            path: '/blacklist/blackId',
             method: 'GET'
         });
         expect(typeof call.calls.argsFor(0)[1]).toBe('function');
     });
 
-    it('should call update method properly', function() {
-        expect(api.update('cusId', {
-            key1: 'val1'
-        }, function() {})).toBe('call response');
-
-        expect(call.calls.argsFor(0)[0]).toEqual({
-            path: '/customers/cusId',
-            method: 'POST',
-            params: {
-                key1: 'val1'
-            }
-        });
-        expect(typeof call.calls.argsFor(0)[1]).toBe('function');
-    });
-
     it('should call delete method properly', function() {
-        expect(api.delete('cusId', function() {})).toBe('call response');
+        expect(api.delete('blackId', function() {})).toBe('call response');
 
         expect(call.calls.argsFor(0)[0]).toEqual({
-            path: '/customers/cusId',
+            path: '/blacklist/blackId',
             method: 'DELETE'
         });
         expect(typeof call.calls.argsFor(0)[1]).toBe('function');
@@ -62,7 +47,7 @@ describe('Customers api', function() {
         expect(api.list(function() {})).toBe('call response');
 
         expect(call.calls.argsFor(0)[0]).toEqual({
-            path: '/customers',
+            path: '/blacklist',
             method: 'GET',
             params: {}
         });
@@ -75,7 +60,7 @@ describe('Customers api', function() {
         }, function() {})).toBe('call response');
 
         expect(call.calls.argsFor(0)[0]).toEqual({
-            path: '/customers',
+            path: '/blacklist',
             method: 'GET',
             params: {
                 key1: 'val1'
