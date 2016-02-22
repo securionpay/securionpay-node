@@ -1,5 +1,7 @@
 Node.js library for SecurionPay API
 ===================================
+![Build status](https://travis-ci.org/securionpay/securionpay-node.svg?branch=master)
+
 For detailed description of parameters for available methods
 please visit https://securionpay.com/docs/api
 
