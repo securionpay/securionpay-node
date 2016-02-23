@@ -7,7 +7,6 @@ please visit https://securionpay.com/docs/api
 
 Installation
 ------------
-TODO: library still needs to be published into NPM
 
 ```
 npm install securionpay
