@@ -1,3 +1,5 @@
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
+
 describe('Charging, capturing and refunding via token', function() {
     var api, random;
 
