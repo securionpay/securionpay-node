@@ -2,9 +2,6 @@ Node.js library for SecurionPay API
 ===================================
 [![Build status](https://travis-ci.org/securionpay/securionpay-node.svg?branch=master)](https://travis-ci.org/securionpay/securionpay-node)
 
-For detailed description of parameters for available methods
-please visit https://securionpay.com/docs/api
-
 Installation
 ------------
 
@@ -142,3 +139,8 @@ To run integration tests against environment other than default:
 ```
 PRIVATE_KEY=pk_test_myprivatekey URL=http://mysecurionenv.com npm run integration-test
 ```
+
+Documentation
+----------
+
+For further information, please refer to our official documentation at https://securionpay.com/docs.
