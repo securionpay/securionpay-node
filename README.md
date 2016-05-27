@@ -13,7 +13,7 @@ Quick start
 -----------
 
 ```
-var api = require('securionpay')('pk_test_myprivatekey')
+var api = require('securionpay')('sk_test_mysecretkey')
 
 api.customers.create({
     email: 'user@example.com',
@@ -119,7 +119,7 @@ Developing
 
 To connect to different backend:
 ```
-var api = require('securionpay')('pk_test_myprivatekey', {
+var api = require('securionpay')('sk_test_mysecretkey', {
     url: 'http://mysecurionenv.com' // without trailing slash
 });
 ```
@@ -132,12 +132,12 @@ npm run check-coverage
 
 To run integration tests:
 ```
-PRIVATE_KEY=pk_test_myprivatekey npm run integration-test
+PRIVATE_KEY=sk_test_mysecretkey npm run integration-test
 ```
 
 To run integration tests against environment other than default:
 ```
-PRIVATE_KEY=pk_test_myprivatekey URL=http://mysecurionenv.com npm run integration-test
+PRIVATE_KEY=sk_test_mysecretkey URL=http://mysecurionenv.com npm run integration-test
 ```
 
 Documentation
