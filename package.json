@@ -4,9 +4,9 @@
   "description": "Node.js wrapper for SecurionPay API",
   "main": "lib/securionpay.js",
   "scripts": {
-    "test": "bin/unit-test",
-    "check-coverage": "bin/check-coverage",
-    "integration-test": "bin/integration-test"
+    "build": "genversion lib/version.js",
+    "test": "genversion lib/version.js && jasmine",
+    "eslint": "eslint"
   },
   "repository": {
     "type": "git",
@@ -23,13 +23,19 @@
   },
   "homepage": "https://github.com/securionpay/securionpay-node#readme",
   "dependencies": {
-    "lodash": "^4.0.0",
-    "request-promise": "^2.0.0"
+    "node-fetch": "^2.6.6"
   },
   "devDependencies": {
-    "bluebird": "^3.1.2",
-    "istanbul": "^0.4.2",
-    "jasmine": "^2.4.1",
-    "mockery": "^1.4.0"
+    "dotenv": "^10.0.0",
+    "eslint-config-standard": "^16.0.3",
+    "genversion": "^3.0.2",
+    "jasmine": "^3.10.0",
+    "mockery": "^2.1.0"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "env": {
+      "node": true
+    }
   }
 }
