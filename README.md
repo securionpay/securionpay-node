@@ -132,12 +132,12 @@ npm run check-coverage
 
 To run integration tests:
 ```
-PRIVATE_KEY=sk_test_mysecretkey npm run integration-test
+SECRET_KEY=sk_test_mysecretkey npm run test
 ```
 
 To run integration tests against environment other than default:
 ```
-PRIVATE_KEY=sk_test_mysecretkey URL=http://mysecurionenv.com npm run integration-test
+SECRET_KEY=sk_test_mysecretkey URL=http://mysecurionenv.com npm run test
 ```
 
 Documentation
