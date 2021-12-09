@@ -6,7 +6,7 @@
   "scripts": {
     "build": "genversion lib/version.js",
     "test": "genversion lib/version.js && jasmine",
-    "eslint": "eslint"
+    "stylecheck": "eslint"
   },
   "repository": {
     "type": "git",

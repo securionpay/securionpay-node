@@ -1,0 +1,32 @@
+name: Build and validate
+on: [ push, pull_request ]
+
+jobs:
+
+  tests:
+    name: Integration Tests
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [ lts/dubnium, lts/erbium, lts/fermium, lts/* ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.os }}
+      - run: npm ci
+      - run: npm test
+
+  style-check:
+    name: Syle Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+      - run: npm ci
+      - run: npm run stylecheck
