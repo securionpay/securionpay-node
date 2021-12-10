@@ -1,6 +1,6 @@
 {
   "name": "securionpay",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Node.js wrapper for SecurionPay API",
   "main": "lib/securionpay.js",
   "scripts": {
@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/securionpay/securionpay-node.git"
   },
+  "files": [
+    "lib/"
+  ],
   "keywords": [
     "payments",
     "api"
