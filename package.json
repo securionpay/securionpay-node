@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/securionpay/securionpay-node#readme",
   "dependencies": {
+    "form-data": "^4.0.0",
     "node-fetch": "^2.6.6"
   },
   "devDependencies": {
@@ -33,7 +34,8 @@
     "eslint-config-standard": "^16.0.3",
     "genversion": "^3.0.2",
     "jasmine": "^3.10.0",
-    "mockery": "^2.1.0"
+    "mockery": "^2.1.0",
+    "tempy": "^2.0.0"
   },
   "eslintConfig": {
     "extends": "standard",
