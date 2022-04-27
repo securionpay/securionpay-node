@@ -1,4 +1,4 @@
-const SecurionPayGateway = require('../../')
+const { SecurionPayGateway } = require('../../')
 const cards = require('../data/cards')
 const customers = require('../data/customers')
 const charges = require('../data/charges')
