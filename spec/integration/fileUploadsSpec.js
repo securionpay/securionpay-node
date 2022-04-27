@@ -1,4 +1,4 @@
-const SecurionPayGateway = require('../../')
+const { SecurionPayGateway } = require('../../')
 const FormData = require('form-data')
 const random = require('../data/random')
 const fs = require('fs')

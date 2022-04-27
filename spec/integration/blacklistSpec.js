@@ -1,4 +1,4 @@
-const SecurionPayGateway = require('../../')
+const { SecurionPayGateway } = require('../../')
 const { randomEmail } = require('../data/random')
 
 describe('Blacklist', function () {

@@ -1,4 +1,4 @@
-const SecurionPayGateway = require('../../')
+const { SecurionPayGateway } = require('../../')
 if (process.env.API_URL) {
   SecurionPayGateway.defaultOptions.apiUrl = process.env.API_URL
 }

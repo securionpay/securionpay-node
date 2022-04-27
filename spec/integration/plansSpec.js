@@ -1,4 +1,4 @@
-const SecurionPayGateway = require('../../')
+const { SecurionPayGateway } = require('../../')
 const plans = require('../data/plans')
 
 describe('Plans', function () {

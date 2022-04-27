@@ -1,4 +1,4 @@
-const SecurionPayGateway = require('../../')
+const { SecurionPayGateway } = require('../../')
 
 describe('Checkout request api', function () {
   const api = new SecurionPayGateway({secretKey:  'pr_test_bu0GRzw3MzhT10fpxa1j9OHJ' })

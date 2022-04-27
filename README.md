@@ -13,24 +13,38 @@ npm install securionpay
 Quick start
 -----------
 
+
 ```js
-const api = require('securionpay')({ secretKey: 'sk_test_mysecretkey' })
-try {
-  const customer = await api.customers.create({
-    email: 'user@example.com',
-    description: 'User description'
-  })
-  const card = await api.cards.create(customer.id, {
-    number: '4242424242424242',
-    expMonth: '12',
-    expYear: '2020',
-    cvc: '123',
-    cardholderName: 'John Smith'
-  })
-  console.log('ID of created card object: ', card.id);
-} catch (e) {
-  // handle errors
-}
+const api = require('securionpay')('sk_test_my_secret_key');
+(async () => {
+  try {
+    const customer = await api.customers.create({
+      email: 'user@example.com',
+      description: 'User description'
+    })
+    console.log('ID of created customer object: ', customer.id);
+
+    const card = await api.cards.create(customer.id, {
+      number: '4242424242424242',
+      expMonth: '12',
+      expYear: '2025',
+      cvc: '123',
+      cardholderName: 'John Smith'
+    })
+    console.log('ID of created card object: ', card.id);
+
+    const charge = await api.charges.create({
+      amount: 1000,
+      currency: "EUR",
+      card: card.id,
+      customerId: customer.id
+    });
+    console.log('ID of created charge object: ', charge.id);
+  } catch (e) {
+    console.error(e)
+    // handle errors
+  }
+})();
 
 ```
 
@@ -116,7 +130,7 @@ To connect to different backend:
 
 ```js
 var api = require('securionpay')({
-  secretKey: 'sk_test_mysecretkey',
+  secretKey: 'sk_test_my_secret_key',
   apiUrl: 'https://api.mysecurionenv.com',
   uploadsUrl: 'https://uploads.mysecurionenv.com'
 });
@@ -125,7 +139,7 @@ var api = require('securionpay')({
 To run tests:
 
 ```sh
-SECRET_KEY=sk_test_mysecretkey npm run test
+SECRET_KEY=sk_test_my_secret_key npm run test
 ```
 
 To run style check:
