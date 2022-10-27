@@ -10,22 +10,22 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [ lts/dubnium, lts/erbium, lts/fermium, lts/* ]
+        node: [ lts/fermium, lts/gallium, lts/* ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.os }}
+          node-version: ${{ matrix.node }}
       - run: npm ci
       - run: npm test
 
   style-check:
-    name: Syle Check
+    name: Style Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: lts/*
       - run: npm ci
