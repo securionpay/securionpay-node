@@ -1,3 +1,8 @@
+Deprecation
+===================================
+
+This library is deprecated. Please use [Shift4 Node.js Library](https://github.com/shift4developer/shift4-node).
+
 Node.js library for SecurionPay API
 ===================================
 
